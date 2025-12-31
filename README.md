@@ -1,16 +1,58 @@
-# React + Vite
+# Professional Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance portfolio website built with React, Framer Motion, and custom CSS. This project features a premium dark aesthetic, dynamic data integration, and fully responsive design.
 
-Currently, two official plugins are available:
+## 🚀 Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Premium Dark Mode UI**: A sleek, dark-themed interface with glassmorphism and subtle animations.
+- **Dynamic Site Navigation**: Smooth-scrolling sticky navbar with a profile-icon triggered dropdown menu.
+- **Interactive Tech Stack**: A custom-styled display of technologies with hover effects and staggered entrance animations.
+- **Sticky Projects Section**: Engaging project presentation with card-stacking behavior.
+- **Dynamic Arena Section**:
+    - **GitHub Analytics**: Live contribution data visualized in a custom grayscale pixel chart.
+    - **LeetCode Stats**: Real-time coding statistics fetched from LeetCode.
+    - **Social Integration**: Custom expansion-card layout for social platforms.
+- **Responsive Design**: Meticulously optimized for all screen sizes (mobile, tablet, desktop).
+- **Direct Mailto Integration**: Fully functional contact points across the site.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React.js
+- **Animations**: Framer Motion
+- **Styling**: Vanilla CSS (Custom Variables & Modern Layouts)
+- **Data Integration**: GitHub Contributions API, LeetCode Stats API
+- **Utilities**: CountUp animations, SmoothScroll
 
-## Expanding the ESLint configuration
+## 📦 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v16.x or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/divyanash2007/portfolio.git
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+## 📬 Contact
+
+- **Name**: Divyansh Garg
+- **Email**: [divyanshg6289@gmail.com](mailto:divyanshg6289@gmail.com)
+- **LinkedIn**: [Divyansh Garg](https://www.linkedin.com/in/divyansh-garg-30770a230/)
+- **GitHub**: [divyanash2007](https://github.com/divyanash2007)
+
+---
+© 2025 Divyansh Garg. All rights reserved.
