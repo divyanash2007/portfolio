@@ -34,7 +34,7 @@ const CountUp = ({ to, prefix = '', suffix = '' }) => {
  * Custom pixel grid that displays GitHub contribution data.
  * Pure presentational component.
  */
-const GitHubGrid = ({ data }) => {
+const GitHubGrid = React.memo(({ data }) => {
     return (
         <div style={{
             display: 'grid',
@@ -79,7 +79,7 @@ const GitHubGrid = ({ data }) => {
             )}
         </div>
     );
-};
+});
 
 // --- Data ---
 const initialArenaItems = [
@@ -169,26 +169,38 @@ const initialArenaItems = [
         )
     },
     {
-        id: 'codechef',
-        name: 'CodeChef',
+        id: 'hackerrank',
+        name: 'HackerRank',
         tag: 'Competitive',
-        color: '#5B4638',
-        link: 'https://www.codechef.com/users/divyansh',
+        color: '#2EC866',
+        link: 'https://www.hackerrank.com/profile/divyanshg6289',
         icon: (
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 10.5c0 1.5-1.5 2.5-1.5 2.5s-1 .5-1.5.5-1.5-1-1.5-2.5c0-2.5 2.5-3 3-5 .5-2 1.5-2.5 2.5-2.5 2 0 3.5 2 3.5 4.5S20 10.5 18 10.5zm-8.5 0C9.5 12 8 13 8 13s-1 .5-1.5.5S5 12.5 5 11c0-2.5 2.5-3 3-5 .5-2 1.5-2.5 2.5-2.5 2 0 3.5 2 3.5 4.5S12 10.5 9.5 10.5zM12 16c-4.4 0-8 3.6-8 8h16c0-4.4-3.6-8-8-8z" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 12L7 2L12 12L17 2L22 12" /> {/* Abstract visual for now, or use a specific path if preferred */}
+                <path d="M5.5 22h13" />
             </svg>
         ),
-        subtitle: "Cooking up top-tier code...",
-        stat: "Kitchen opening soon 👨‍🍳",
+        subtitle: "Analyzing profile...",
+        stat: "Loading stats...",
         renderVisual: () => (
-            <motion.div
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 1, repeat: Infinity }}
-                style={{ marginTop: '10px', fontSize: '1.2rem' }}
-            >
-                🔥
-            </motion.div>
+            <div style={{
+                width: '100%',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '4px',
+                marginTop: '10px'
+            }}>
+                {[1, 2, 3, 4, 5].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        animate={{ height: [10, 30, 10] }}
+                        transition={{ duration: 1, repeat: Infinity, delay: i * 0.1 }}
+                        style={{ width: '6px', background: '#2EC866', borderRadius: '4px' }}
+                    />
+                ))}
+            </div>
         )
     }
 ];
@@ -261,6 +273,45 @@ const Arena = () => {
 
         fetchGitHub();
         fetchLeetCode();
+
+        // --- Fetch HackerRank Data ---
+        const fetchHackerRank = async () => {
+            try {
+                // Using CORS proxy to get the profile data
+                const res = await fetch('https://corsproxy.io/?https://www.hackerrank.com/rest/contests/master/hackers/divyanshg6289/profile');
+                const data = await res.json();
+                if (data && data.model) {
+                    const { created_at, level, title } = data.model;
+
+                    // Format Date: "Joined Aug 2025"
+                    const date = new Date(created_at);
+                    const joined = `Joined ${date.toLocaleString('default', { month: 'short' })} ${date.getFullYear()}`;
+
+                    // Clean Title (remove HTML tags like <sup>)
+                    const cleanTitle = title.replace(/<[^>]*>/g, '');
+
+                    setItems(prev => prev.map(item => {
+                        if (item.id === 'hackerrank') {
+                            return {
+                                ...item,
+                                subtitle: `${cleanTitle} (Level ${level})`,
+                                stat: joined,
+                                renderVisual: () => (
+                                    <div style={{ marginTop: '10px', fontSize: '2rem', fontWeight: 'bold', color: '#2EC866' }}>
+                                        {level}
+                                        <span style={{ fontSize: '0.8rem', color: '#888', marginLeft: '5px' }}>stars</span>
+                                    </div>
+                                )
+                            };
+                        }
+                        return item;
+                    }));
+                }
+            } catch (err) {
+                console.error("HackerRank fetch error:", err);
+            }
+        };
+        fetchHackerRank();
 
     }, []);
 

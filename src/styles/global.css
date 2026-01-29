@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
+    cursor: none;
+    /* Hide default cursor globally */
+}
+
+a,
+button {
+    cursor: none;
+    /* Ensure interactive elements don't show pointer */
 }
 
 html {

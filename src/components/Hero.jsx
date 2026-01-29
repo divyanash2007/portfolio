@@ -175,7 +175,7 @@ const Hero = () => {
                 </div>
 
                 {/* Right Block: Image */}
-                <div style={{
+                <div className="hero-image-container" style={{
                     flex: 1,
                     display: 'flex',
                     justifyContent: 'flex-end',
@@ -193,8 +193,8 @@ const Hero = () => {
                             maxHeight: '600px',
                             objectFit: 'contain',
                             filter: 'grayscale(100%) contrast(1.1)',
-                            maskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)',
-                            WebkitMaskImage: 'radial-gradient(circle at center, black 60%, transparent 100%)'
+                            maskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)',
+                            WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 80%)'
                         }} />
                 </div>
 
@@ -244,26 +244,55 @@ const Hero = () => {
                 }
 
                 @media (max-width: 768px) {
-                    .hero-split-container {
-                        flex-direction: column-reverse !important;
-                        text-align: center;
+                    #hero {
+                        background-image: url(${me}) !important;
+                        background-size: cover !important;
+                        background-position: center top !important;
+                        background-repeat: no-repeat !important;
                     }
-                    .hero-split-container > div {
-                        align-items: center !important;
-                        justify-content: center !important;
+                    
+                    /* Overlay for readability */
+                    #hero::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
                         width: 100%;
+                        height: 100%;
+                        background: linear-gradient(to bottom, rgba(5,7,6,0.8), rgba(5,7,6,0.9));
+                        z-index: 1;
                     }
-                     .hero-split-container h1 {
-                        text-align: center !important;
-                        font-size: 15vw !important;
-                     }
-                     
-                     /* Mobile override for button */
+
+                    .hero-split-container {
+                        flex-direction: column !important; /* Stack normally, text on top */
+                        text-align: center;
+                        z-index: 2; /* Sit on top of overlay */
+                        justify-content: center !important;
+                        align-items: center !important;
+                        height: 100% !important;
+                    }
+
+                    .hero-split-container > div {
+                        width: 100%;
+                        align-items: center !important; /* Center text */
+                        margin-bottom: 0 !important;
+                    }
+
+                    .hero-image-container {
+                        display: none !important; /* Hide actual image element */
+                    }
+                    
+                    /* Button mobile style */
                      .hero-button {
                         position: relative !important;
                         bottom: auto !important;
                         left: auto !important;
                         margin-top: 2rem !important;
+                     }
+                     
+                     .hero-split-container h1 {
+                         font-size: 15vw !important;
+                         text-align: center !important;
                      }
                 }
             `}</style>

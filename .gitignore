@@ -33,3 +33,5 @@ yarn.lock
 *.sw?
 Thumbs.db
 
+# Large Files
+*.tar.gz
