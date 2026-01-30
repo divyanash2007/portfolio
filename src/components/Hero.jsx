@@ -157,21 +157,45 @@ const Hero = () => {
                         </motion.div>
                     </div>
 
-                    <button
-                        onClick={() => window.location.href = 'mailto:divyanshg6289@gmail.com'}
-                        className="hero-button"
-                        style={{
-                            background: 'transparent',
-                            border: '1px solid #444',
-                            color: '#fff',
-                            borderRadius: '50px',
-                            padding: '12px 32px',
-                            fontSize: '0.9rem',
-                            cursor: 'pointer',
-                            // Base styles, positioning handled in CSS
-                        }}>
-                        Get in touch →
-                    </button>
+                    <div style={{
+                        display: 'flex',
+                        gap: '1rem',
+                        alignItems: 'center',
+                    }}>
+                        <a
+                            href="/resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hero-button-resume"
+                            style={{
+                                background: '#fff',
+                                color: '#000',
+                                border: '1px solid #fff',
+                                borderRadius: '50px',
+                                padding: '12px 32px',
+                                fontSize: '0.9rem',
+                                cursor: 'pointer',
+                                textDecoration: 'none',
+                                fontWeight: '600'
+                            }}>
+                            View Resume
+                        </a>
+
+                        <button
+                            onClick={() => window.location.href = 'mailto:divyanshg6289@gmail.com'}
+                            className="hero-button"
+                            style={{
+                                background: 'transparent',
+                                border: '1px solid #444',
+                                color: '#fff',
+                                borderRadius: '50px',
+                                padding: '12px 32px',
+                                fontSize: '0.9rem',
+                                cursor: 'pointer',
+                            }}>
+                            Get in touch →
+                        </button>
+                    </div>
                 </div>
 
                 {/* Right Block: Image */}
@@ -235,12 +259,17 @@ const Hero = () => {
                     100% { transform: translateY(0); opacity: 1; }
                 }
                 
-                /* Desktop default for button */
-                .hero-button {
-                    position: absolute;
-                    bottom: 20%;
-                    left: 0;
-                    margin-top: 0;
+                /* Desktop default for button container */
+                .hero-button, .hero-button-resume {
+                    /* No absolute positioning needed in desktop flex layout */
+                }
+
+                @media (min-width: 769px) {
+                     /* Ensure buttons are properly positioned if using absolute previously, 
+                        but we switched to flex layout in the JSX. 
+                        Let's check if the previous CSS was doing something tricky.
+                        The previous CSS had .hero-button absolute positioning. 
+                        We should reset that for the flex container approach. */
                 }
 
                 @media (max-width: 768px) {
@@ -283,11 +312,11 @@ const Hero = () => {
                     }
                     
                     /* Button mobile style */
-                     .hero-button {
+                     .hero-button, .hero-button-resume {
                         position: relative !important;
                         bottom: auto !important;
                         left: auto !important;
-                        margin-top: 2rem !important;
+                        margin-top: 1rem !important;
                      }
                      
                      .hero-split-container h1 {
