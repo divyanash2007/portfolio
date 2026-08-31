@@ -3,47 +3,94 @@ import { motion } from 'framer-motion';
 
 const certificates = [
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
+        title: "Cisco CCNA 200-301: Complete Guide",
+        issuer: "Coursera / Packt",
+        date: "Aug 2026",
+        credential: "https://coursera.org/verify/specialization/AG5JF510840W",
+        fileUrl: "/certificates/Coursera%20AG5JF510840W.pdf",
         accent: "#4fd1c5",
+        description: "4-course specialization covering networking fundamentals, Cisco IOS, VLANs, routing, WAN security & network automation.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                <line x1="6" y1="6" x2="6.01" y2="6" />
+                <line x1="6" y1="18" x2="6.01" y2="18" />
+            </svg>
+        )
     },
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
-        accent: "#63b3ed",
+        title: "Python (Basic) Certification",
+        issuer: "HackerRank",
+        date: "Sep 2025",
+        credential: "https://www.hackerrank.com/certificates/8875F06502A6",
+        fileUrl: "/certificates/python_basic%20certificate.pdf",
+        accent: "#2EC866",
+        description: "Verified skill assessment covering Python core logic, data structures, object-oriented concepts, and algorithm design.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2C8 2 6 3 6 5V7H14V5C14 4 13 4 13 4H9" />
+                <path d="M12 22C16 22 18 21 18 19V17H10V19" />
+                <circle cx="9" cy="5" r="1" />
+                <circle cx="15" cy="19" r="1" />
+            </svg>
+        )
     },
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
-        accent: "#f6ad55",
+        title: "CTF 'EXPLOIT 404' Capture The Flag",
+        issuer: "Codemia & LPU",
+        date: "Apr 2026",
+        credential: "/certificates/WhatsApp%20Image%202026-09-01%20at%2012.19.25%20AM.jpeg",
+        accent: "#38B2AC",
+        description: "Awarded for participating in the EXPLOIT 404 CTF cybersecurity challenge at Lovely Professional University.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                <line x1="4" y1="22" x2="4" y2="15" />
+            </svg>
+        )
     },
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
+        title: "Introduction to Cybersecurity Tools",
+        issuer: "Codemia & EC-Council",
+        date: "2026",
+        credential: "/certificates/WhatsApp%20Image%202026-09-01%20at%2012.19.24%20AM%20(1).jpeg",
         accent: "#fc8181",
+        description: "Hands-on technical workshop focused on essential security tools, network monitoring, and vulnerability assessment.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+        )
     },
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
-        accent: "#b794f4",
+        title: "Role of Full Stack in Cybersecurity",
+        issuer: "Codemia & DriftX",
+        date: "2026",
+        credential: "/certificates/WhatsApp%20Image%202026-09-01%20at%2012.19.24%20AM.jpeg",
+        accent: "#63b3ed",
+        description: "Specialized workshop exploring secure web architecture, API protection strategies, and defensive web engineering.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+            </svg>
+        )
     },
     {
-        title: "Certificate Title",
-        issuer: "Issuing Organization",
-        date: "Month 2025",
-        credential: "#",
-        accent: "#68d391",
-    },
+        title: "Digital Financial Literacy & Fraud Safety",
+        issuer: "Astitva Foundation",
+        date: "Aug 2026",
+        credential: "/certificates/SCAN_20260805_200313056%20(1).pdf",
+        accent: "#f6ad55",
+        description: "Certified for training and promoting digital financial security and fraud awareness initiatives in India.",
+        icon: (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+            </svg>
+        )
+    }
 ];
 
 const containerVariants = {
@@ -135,7 +182,7 @@ const Certificates = () => {
                             padding: '2rem',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '1.2rem',
+                            gap: '1rem',
                             position: 'relative',
                             overflow: 'hidden',
                             cursor: 'default',
@@ -151,7 +198,7 @@ const Certificates = () => {
                             background: `linear-gradient(90deg, ${cert.accent}, transparent)`,
                         }} />
 
-                        {/* Icon placeholder */}
+                        {/* Icon */}
                         <div style={{
                             width: '48px',
                             height: '48px',
@@ -163,16 +210,12 @@ const Certificates = () => {
                             justifyContent: 'center',
                             color: cert.accent,
                         }}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <path d="M12 8v8" />
-                                <path d="M8 12h8" />
-                            </svg>
+                            {cert.icon}
                         </div>
 
                         {/* Title */}
                         <h3 style={{
-                            fontSize: '1.3rem',
+                            fontSize: '1.25rem',
                             fontWeight: '600',
                             color: '#fff',
                             margin: 0,
@@ -191,7 +234,8 @@ const Certificates = () => {
                         }}>
                             <span style={{
                                 color: '#aaa',
-                                fontSize: '0.95rem',
+                                fontSize: '0.9rem',
+                                fontWeight: '500'
                             }}>
                                 {cert.issuer}
                             </span>
@@ -204,28 +248,61 @@ const Certificates = () => {
                             </span>
                         </div>
 
-                        {/* Credential Link */}
-                        <a
-                            href={cert.credential}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                display: 'inline-flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                color: cert.accent,
-                                fontSize: '0.9rem',
-                                fontWeight: '500',
-                                marginTop: 'auto',
-                                width: 'fit-content',
-                            }}
-                        >
-                            View Credential
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="7" y1="17" x2="17" y2="7" />
-                                <polyline points="7 7 17 7 17 17" />
-                            </svg>
-                        </a>
+                        {/* Description */}
+                        <p style={{
+                            color: '#777',
+                            fontSize: '0.88rem',
+                            lineHeight: '1.5',
+                            margin: 0
+                        }}>
+                            {cert.description}
+                        </p>
+
+                        {/* Credential Links */}
+                        <div style={{
+                            display: 'flex',
+                            gap: '1rem',
+                            alignItems: 'center',
+                            marginTop: 'auto',
+                            paddingTop: '0.5rem'
+                        }}>
+                            <a
+                                href={cert.credential}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                    display: 'inline-flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    color: cert.accent,
+                                    fontSize: '0.88rem',
+                                    fontWeight: '600',
+                                }}
+                            >
+                                View Credential
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7" />
+                                    <polyline points="7 7 17 7 17 17" />
+                                </svg>
+                            </a>
+                            {cert.fileUrl && cert.fileUrl !== cert.credential && (
+                                <a
+                                    href={cert.fileUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{
+                                        display: 'inline-flex',
+                                        alignItems: 'center',
+                                        gap: '4px',
+                                        color: '#888',
+                                        fontSize: '0.82rem',
+                                        fontWeight: '500',
+                                    }}
+                                >
+                                    📄 Document
+                                </a>
+                            )}
+                        </div>
 
                         {/* Background radial glow */}
                         <div style={{
@@ -255,3 +332,4 @@ const Certificates = () => {
 };
 
 export default Certificates;
+

@@ -163,7 +163,7 @@ const Hero = () => {
                         alignItems: 'center',
                     }}>
                         <a
-                            href="/resume.pdf"
+                            href="/divyansh_resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hero-button-resume"
